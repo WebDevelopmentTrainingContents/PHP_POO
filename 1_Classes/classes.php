@@ -1,0 +1,66 @@
+<?php
+
+require('voiture.php');
+require('test.php');
+require('construct.php');
+require('extends.php');
+
+$voiture = new Voiture;
+echo 'couleur de la voiture : ' . $voiture->couleur . '<br>';
+echo 'annee de la voiture : ' . $voiture->annee . '<br>';
+echo 'manière dont la voiture démarre : ' . $voiture->demarrer() . '<br>';
+echo 'type de moteur : ' . $voiture->carburant("à l'essence") . '<br>';
+echo $voiture->plaque($voiture->getPlaque());
+
+echo('<br><br>');
+
+/* Tests avec la classe Test des privates et publics : 
+ */
+
+$test = new Test();
+$test->nom = "TestNom";
+echo $test->nom;
+echo('<br>');
+/* $test->_age = 22;
+echo $test->_age; */
+$test->setAge(34);
+echo $test->getAge();
+
+
+echo('<br><br>');
+
+/* Tests avec Construct :
+*/
+
+
+$equipe = new Equipe(); // Appel implicite à $equipe->__construct()
+var_dump($equipe);
+echo('<br>');
+$equipe = new Equipe( 22 , 'un pour tous'); // Appel implicite à $equipe->__construct( 22 , "un pour tous")
+var_dump($equipe);
+echo('<br>');
+
+
+$equipe2 = new Equipe(); // Appel implicite à $equipe->__construct()
+var_dump($equipe2);
+echo('<br>');
+$equipe2 = new Equipe( 17 , 'tous grands'); // Appel implicite à $equipe->__construct( 22 , "un pour tous")
+var_dump($equipe2);
+
+
+echo('<br><br>');
+
+
+/* Tests avec Extends :
+*/
+
+$truc = new Truc();
+$truc->_setObjet("outils");
+echo $truc->_getObjet();
+echo('<br>');
+$truc2 = new Machin();
+$truc2->_setObjet("pelle");
+echo $truc2->_getObjet();
+
+
+?>
