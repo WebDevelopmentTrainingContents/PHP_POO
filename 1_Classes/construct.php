@@ -3,10 +3,14 @@
 class Equipe {
    public $nombreMembres;
    public $devise;
-   public function __construct($nombreMembres='', $devise='') {
+   public function __construct($nombreMembres, $devise) {
        $this->nombreMembres = $nombreMembres;
        $this->devise = $devise;
    }
 }
-$equipe = new Equipe(); // Appel implicite à $equipe->__construct()
-$equipe = new Equipe( 22 , 'un pour tous'); // Appel implicite à $equipe->__construct( 22 , 'un pour tous')
+
+$equipe = new Equipe('23', 'Bonjour à tous');
+var_dump($equipe);
+
+$equipe2 = new Equipe('44', 'coucou');
+var_dump($equipe2);
