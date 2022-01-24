@@ -21,10 +21,13 @@ $test = new Test();
 $test->nom = "TestNom";
 echo $test->nom;
 echo('<br>');
-/* $test->_age = 22;
-echo $test->_age; */
-$test->setAge(34);
+
+$test->setAge(22);
+
 echo $test->getAge();
+
+/* $test->setAge(34);
+echo $test->getAge(); */
 
 
 echo('<br><br>');
