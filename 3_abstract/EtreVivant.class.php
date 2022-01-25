@@ -5,13 +5,16 @@ abstract class EtreVivant {
    /* ... */
 }
 
-class Humain extends EtreVivant {
-    public $taille;
-    /* ... */
- }
-
 /* $etreVivant = new EtreVivant; */
 
+class Humain extends EtreVivant {
+    public $taille;
+    public $regimeAlimentaire;
+  
+ } 
+
+/* $etreVivant = new EtreVivant;
+ */
 $etreHumain = new Humain;
 
 var_dump($etreHumain);

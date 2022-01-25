@@ -1,10 +1,9 @@
 <?php
 
+include('php.php');
+autoloadClasses();
 
-function Autoloader($class) { 
-    include 'Classes/' . $class . '.class.php';
-};
-spl_autoload_register('Autoloader'); 
+
 /* //J'instancie ma classe avec un nouvel objet :
 $utilisateur = new Utilisateur();
 
@@ -40,5 +39,10 @@ echo $administrateur->getPass()  . '<br>';
 
 /* $administrateur->setRole($_POST['role']); */
 echo $administrateur->getRole()  . '<br>'; 
+
+
+
+$amdin2 = new Admin('base');
+var_dump($amdin2);
 
 ?>

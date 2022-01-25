@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <form action="Classes/utilisateur.php" method="POST">
+    <form action="autoload.php" method="POST">
     <input
                 type="text"
                 name="nom"
