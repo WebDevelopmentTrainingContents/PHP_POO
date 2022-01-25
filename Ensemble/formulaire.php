@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <form action="Classes/utilisateur.php" method="POST">
     <input
@@ -38,13 +39,13 @@
                 value=""
                 required
             />
-            <label for="role-select">Choisissez un rôle:</label>
+          <!--   <label for="role-select">Choisissez un rôle:</label>
 
 <select name="role" id="role-select">
     <option value="">--Choisissez un rôle :--</option>
     <option value="admin">Admin</option>
     <option value="superadmin">SuperAdmin</option>
-</select>
+</select> -->
          
             <input
                 type="submit"

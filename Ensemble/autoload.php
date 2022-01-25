@@ -1,42 +1,10 @@
 <?php
 
-class Utilisateur {
-    //Attributs : 
-    public $prenom;
-    public $nom;
-    private $_email;
-    private $_password;
 
-    //Méthodes:
-    public function getEmail() {
-        return $this->_email;
-    }
-    public function setEmail($email) {
-        $this->_email = $email;
-    }
- 
-    public function getPass() {
-        return $this->_password;
-    }
-    public function setPass($password) {
-        $this->_password = $password;
-    }
-}
-
-// Créer une nouvelle classe Administrateur qui étend la classe utilisateur :
-
-class Admin extends Utilisateur {
-  private $_role;
-
-  public function getRole() {
-    return $this->_role;
-}
-public function setRole($role) {
-    $this->_role = $role;
-}
-    
-}
-
+function Autoloader($class) { 
+    include 'Classes/' . $class . '.class.php';
+};
+spl_autoload_register('Autoloader'); 
 /* //J'instancie ma classe avec un nouvel objet :
 $utilisateur = new Utilisateur();
 
@@ -54,7 +22,7 @@ echo $utilisateur->getEmail()  . '<br>';
 $utilisateur->setPass(crypt($_POST['password'], '$1$rasmusle$'));
 echo $utilisateur->getPass()  . '<br>'; */
 
-$administrateur = new Admin();
+$administrateur = new Admin('admin');
 
 // Pour accéder et renseigner les attributs publiques :
 $administrateur->prenom = $_POST['prenom'];
@@ -70,5 +38,7 @@ echo $administrateur->getEmail()  . '<br>';
 $administrateur->setPass(crypt($_POST['password'], '$1$rasmusle$'));
 echo $administrateur->getPass()  . '<br>';
 
-$administrateur->setRole($_POST['role']);
-echo $administrateur->getRole()  . '<br>';
+/* $administrateur->setRole($_POST['role']); */
+echo $administrateur->getRole()  . '<br>'; 
+
+?>
