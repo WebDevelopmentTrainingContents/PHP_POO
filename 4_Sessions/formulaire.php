@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body style="background-color: <?= $_SESSION['color'] ?>;">
     <form action="sessions.php" method="POST">
     <input
                 type="text"
@@ -45,6 +49,16 @@
     <option value="admin">Admin</option>
     <option value="superadmin">SuperAdmin</option>
 </select>
+
+<label for="role-select">Choisissez une couleur:</label>
+
+<select name="color" id="role-select">
+    <option value="">--Choisissez une couleur :--</option>
+    <option value="red">Rouge</option>
+    <option value="green">Vert</option>
+    <option value="yellow">Jaune</option>
+    <option value="blue">Bleu</option>
+</select>
          
             <input
                 type="submit"
@@ -56,3 +70,4 @@
     </form>
 </body>
 </html>
+

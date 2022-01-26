@@ -1,6 +1,12 @@
-<?php
-session_start();
-echo 'Bonjour ' . $_SESSION['pseudo'] . '<br>';
+<?php session_start(); 
+
+if($_POST)
+{
+    $_SESSION["color"] = $_POST['color'];
+}
+
+/* var_dump($_SESSION); */
+
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +18,7 @@ echo 'Bonjour ' . $_SESSION['pseudo'] . '<br>';
     <title>Document</title>
 </head>
 <body style="background-color: <?= $_SESSION['color'] ?>;">
- 
-<a href="../formulaire.php">Vers Formulaire</a>
+    <a href="formulaireExercice.php"> Vers le formulaire </a>
 </body>
 </html>
+
