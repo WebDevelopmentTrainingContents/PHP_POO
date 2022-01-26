@@ -37,6 +37,8 @@ public function setRole($role) {
     
 }
 
+
+
 /* //J'instancie ma classe avec un nouvel objet :
 $utilisateur = new Utilisateur();
 
@@ -72,3 +74,4 @@ echo $administrateur->getPass()  . '<br>';
 
 $administrateur->setRole($_POST['role']);
 echo $administrateur->getRole()  . '<br>';
+

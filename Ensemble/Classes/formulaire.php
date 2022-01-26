@@ -38,12 +38,15 @@
                 value=""
                 required
             />
+            
             <label for="role-select">Choisissez un rôle:</label>
 
 <select name="role" id="role-select">
-    <option value="">--Choisissez un rôle :--</option>
-    <option value="admin">Admin</option>
-    <option value="superadmin">SuperAdmin</option>
+    <option value="">--Choisissez un couleur :--</option>
+    <option value="red">Admin</option>
+    <option value="green">SuperAdmin</option>
+    <option value="yellow">SuperAdmin</option>
+    <option value="bleu">SuperAdmin</option>
 </select>
          
             <input
