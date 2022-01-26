@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +8,8 @@
     <title>Document</title>
 </head>
 
-<body>
-    <form action="Classes/utilisateur.php" method="POST">
+<body style="background-color: <?= $_SESSION['color']?>;">
+    <form action="exercices.php" method="POST">
     <input
                 type="text"
                 name="nom"
@@ -39,13 +40,23 @@
                 value=""
                 required
             />
+            <label for="role-select">Choisissez une couleur:</label>
+
+            <select name="color" id="role-select">
+                <option value="">--Choisissez une couleur :--</option>
+                <option value="red">Rouge</option>
+                <option value="green">Vert</option>
+                <option value="yellow">Jaune</option>
+                <option value="blue">Bleu</option>
+            </select>
+
           <!--   <label for="role-select">Choisissez un rôle:</label>
 
-<select name="role" id="role-select">
-    <option value="">--Choisissez un rôle :--</option>
-    <option value="admin">Admin</option>
-    <option value="superadmin">SuperAdmin</option>
-</select> -->
+                <select name="role" id="role-select">
+                    <option value="">--Choisissez un rôle :--</option>
+                    <option value="admin">Admin</option>
+                    <option value="superadmin">SuperAdmin</option>
+                </select> -->
          
             <input
                 type="submit"
