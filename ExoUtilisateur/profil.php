@@ -16,10 +16,19 @@ if(isset($_POST['email']) && $_POST['email'] != NULL){
 }
 
 
+if(isset($_POST['password']) && $_POST['password'] != NULL){
+    $_SESSION['password'] = $_POST['password'];
+}
+
+
 if(isset($_POST['mailEdited']) && $_POST['mailEdited'] != NULL){
     $_SESSION['email'] = $_POST['mailEdited'];
 }
 
+
+if(isset($_POST['passwordEdited']) && $_POST['passwordEdited'] != NULL){
+    $_SESSION['password'] = $_POST['passwordEdited'];
+}
 // à ne pas faire :
 /* 
 if($_POST){
@@ -45,10 +54,12 @@ if($_POST){
     <title>Document</title>
 </head>
 <body class="<?= $_SESSION['theme'] ?>">
-    <p>Bonjour <?= $_SESSION['prenom'] ?></p>
+    <p>Bonjour <?= $_SESSION['prenom'] . " " . $_SESSION['nom'] ?></p>
     <p>Votre mail est <?= $_SESSION['email'] ?></p>
-    <a style="padding-top:70px;" href="formulaireUser.php">Retour vers le formulaire</a>
-    <a style="padding-top:70px;" href="modifMail.php">Modifier mon mail</a>
+    <p>Votre password est <?= $_SESSION['password'] ?></p>
+    <a style="margin-top:70px;" href="formulaireUser.php">Retour vers le formulaire</a>
+    <a style="margin-top:70px;" href="modifMail.php">Modifier mon mail</a>
+    <a style="margin-top:70px;" href="modifPass.php">Modifier mon MDP</a>
    
 </body>
 </html>
