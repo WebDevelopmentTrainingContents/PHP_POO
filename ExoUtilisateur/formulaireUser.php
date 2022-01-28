@@ -1,4 +1,9 @@
-<?php session_start() ?>
+<?php session_start();
+$pdo = new pdo('mysql:host=localhost;dbname=exoUtilisateur', 'root','', array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['email']) && isset($_POST['password']))
+
+$result = $pdo->exec("INSERT INTO utilisateurs (prenom, nom, mail, motDePasse) VALUES ('$_POST[prenom]', '$_POST[nom]', '$_POST[email]', '$_POST[password]')");
+    echo '<div style="background: green; padding: 5px;">l\'utilisateur a bien été ajouté</div>';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
