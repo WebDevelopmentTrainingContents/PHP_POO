@@ -1,7 +1,7 @@
 <?php
 
 /* include('Classes/Voiture.class.php');
-include('Classes/Personne.class.php'); */
+include('Classes/Personne.class.php'); */ 
 
 // En alternative, on peut utiliser l'autoload :
 // On peut appeler la fonction native PHP qui va tenter automatiquement de trouver le fichier Voiture.php par exemple :

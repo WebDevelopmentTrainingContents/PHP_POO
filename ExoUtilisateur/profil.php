@@ -1,9 +1,15 @@
 <?php session_start();
 $pdo = new PDO('mysql:host=localhost;dbname=ExoUtilisateur', 'root', 'root', array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
 
- if((isset($_POST['prenom']) && $_POST['prenom'] != NULL) && (isset($_POST['nom']) && $_POST['nom'] != NULL) && (isset($_POST['email']) && $_POST['email'] != NULL) && (isset($_POST['password']) && $_POST['password'] != NULL)){ 
+function Autoloader($class) { 
+    include 'Classes/' . $class . '.class.php';
+};
 
-    $result = $pdo->exec("INSERT INTO utilisateurs (prenom, nom, email, motDePasse) VALUES ('$_POST[prenom]', '$_POST[nom]', '$_POST[email]', '$_POST[password]')");
+spl_autoload_register('Autoloader'); 
+
+ if((isset($_POST['prenom']) && $_POST['prenom'] != NULL) && (isset($_POST['nom']) && $_POST['nom'] != NULL) && (isset($_POST['email']) && $_POST['email'] != NULL) && (isset($_POST['password']) && $_POST['password'] != NULL)){ 
+    
+    $result = $pdo->exec("INSERT INTO utilisateurs (prenom, nom, email, motDePasse) VALUES ('$_POST[prenom]', 'utilisateurNom' , '$_POST[email]', 'utilisateurMdp'");
     echo '<div style="background: green; padding: 5px;">l\'utilisateur a bien été ajouté</div>';
  } 
 /*  else{
@@ -35,29 +41,35 @@ if(isset($_POST['password']) && $_POST['password'] != NULL){
 if(isset($_POST['mailEdited']) && $_POST['mailEdited'] != NULL){
    
     $mailToEdit = $_SESSION['email'];
-    $result2 = $pdo->exec("UPDATE utilisateurs SET email = '$_POST[mailEdited]' WHERE email = '$mailToEdit'");
+    $resultMail = $pdo->exec("UPDATE utilisateurs SET email = '$_POST[mailEdited]' WHERE email = '$mailToEdit'");
     $_SESSION['email'] = $_POST['mailEdited'];
     echo 'Mail modifié avec succès !';
+    
+}
 
+
+
+
+if(isset($_POST['prenomEdited']) && $_POST['prenomEdited'] != NULL){
+   
+    $pEdit = $_SESSION['prenom'];
+    $resultPrenom = $pdo->exec("UPDATE utilisateurs SET prenom = '$_POST[prenomEdited]' WHERE prenom = '$pEdit'");
+    echo $resultPrenom;
+    $_SESSION['prenom'] = $_POST['prenomEdited'];
+    echo 'Prénom modifié avec succès !';
+    
 }
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+if(isset($_POST['passwordEdited']) && $_POST['passwordEdited'] != NULL){
+    $passToEdit = $_SESSION['password'];
+    $resultPass = $pdo->exec("UPDATE utilisateurs SET motDePasse = '$_POST[passwordEdited]' WHERE motDePasse = '$passToEdit'");
+    $_SESSION['password'] = $_POST['passwordEdited'];
+    echo 'MDP modifié avec succès !';
+}
 // à ne pas faire :
 /* 
 if($_POST){
@@ -87,6 +99,7 @@ if($_POST){
     <p>Votre mail est <?= $_SESSION['email'] ?></p>
     <p>Votre password est <?= $_SESSION['password'] ?></p>
     <a style="margin-top:70px;" href="formulaireUser.php">Retour vers le formulaire</a>
+    <a style="margin-top:70px;" href="modifPrenom.php">Modifier mon prénom</a>
     <a style="margin-top:70px;" href="modifMail.php">Modifier mon mail</a>
     <a style="margin-top:70px;" href="modifPass.php">Modifier mon MDP</a>
    

@@ -26,7 +26,7 @@ echo $result . ' enregistrement(s) affecté(s) par la requête INSERT<br>'; */
 /* $result = $pdo->exec("DELETE FROM employes WHERE (id_employes >= 500) AND (id_employes <= 700)");
 echo $result . ' enregistrement(s) affecté(s) par la requête DELETE<br>'; */
 
-/* if($_POST)
+if($_POST)
 {
     $result = $pdo->exec("INSERT INTO employes (prenom, nom, sexe, service, date_embauche, salaire) VALUES ('$_POST[prenom]', '$_POST[nom]', '$_POST[sexe]', '$_POST[service]', '$_POST[date_embauche]', '$_POST[salaire]')");
     echo '<div style="background: green; padding: 5px;">l\'employé a bien été ajouté</div>';
@@ -50,14 +50,13 @@ echo $result . ' enregistrement(s) affecté(s) par la requête DELETE<br>'; */
     <input type="text" name="salaire" placeholder="salaire" id="salaire"><br><br>
     <input type="submit"><br><br>
 </form>
- */
 
+<?php
  // Affichage (SELECT) :
 $result = $pdo->query("SELECT * FROM employes WHERE id_employes=900");
 $employe = $result->fetch(PDO::FETCH_ASSOC); 
 echo "<pre>"; print_r($employe); echo "</pre>";
 echo "Bonjour je m'appelle $employe[prenom] $employe[nom] du service $employe[service] et je gagne $employe[salaire] et j'ai été embauché le $employe[date_embauche]<br>";
-
 
 
 
