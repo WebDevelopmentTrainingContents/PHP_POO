@@ -1,4 +1,15 @@
 <?php session_start();
+$pdo = new PDO('mysql:host=localhost;dbname=ExoUtilisateur', 'root', 'root', array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+
+ if((isset($_POST['prenom']) && $_POST['prenom'] != NULL) && (isset($_POST['nom']) && $_POST['nom'] != NULL) && (isset($_POST['email']) && $_POST['email'] != NULL) && (isset($_POST['password']) && $_POST['password'] != NULL)){ 
+
+    $result = $pdo->exec("INSERT INTO utilisateurs (prenom, nom, email, motDePasse) VALUES ('$_POST[prenom]', '$_POST[nom]', '$_POST[email]', '$_POST[password]')");
+    echo '<div style="background: green; padding: 5px;">l\'utilisateur a bien été ajouté</div>';
+ } 
+/*  else{
+     echo 'Veuillez remplir tous les champs';
+ } */
+
 if(isset($_POST['theme']) && $_POST['theme'] != NULL){
     $_SESSION['theme'] = $_POST['theme'];
 }
@@ -22,13 +33,31 @@ if(isset($_POST['password']) && $_POST['password'] != NULL){
 
 
 if(isset($_POST['mailEdited']) && $_POST['mailEdited'] != NULL){
+   
+    $mailToEdit = $_SESSION['email'];
+    $result2 = $pdo->exec("UPDATE utilisateurs SET email = '$_POST[mailEdited]' WHERE email = '$mailToEdit'");
     $_SESSION['email'] = $_POST['mailEdited'];
+    echo 'Mail modifié avec succès !';
+
 }
 
 
-if(isset($_POST['passwordEdited']) && $_POST['passwordEdited'] != NULL){
-    $_SESSION['password'] = $_POST['passwordEdited'];
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // à ne pas faire :
 /* 
 if($_POST){

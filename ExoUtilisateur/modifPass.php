@@ -31,7 +31,7 @@ if(isset($_POST['password']) && $_POST['password'] != NULL){
 
 
     </form>
-    <p>Votre mail est <?= $_SESSION['password'] ?></p>
+    <p>Votre mdp est <?= $_SESSION['password'] ?></p>
 <!--     <a style="padding-top:70px;" href="profil.php">Retourner sur mon profil</a> -->
 </body>
 </html>
